@@ -1,0 +1,1 @@
+mongodb://jhoncito2105_db_user:<db_password>@ac-tks3m6r-shard-00-00.zf6yqzr.mongodb.net:27017,ac-tks3m6r-shard-00-01.zf6yqzr.mongodb.net:27017,ac-tks3m6r-shard-00-02.zf6yqzr.mongodb.net:27017/?ssl=true&replicaSet=atlas-8rpwzd-shard-0&authSource=admin&appName=Project
