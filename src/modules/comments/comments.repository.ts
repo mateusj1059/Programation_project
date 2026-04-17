@@ -4,7 +4,7 @@ import { Comment } from "./comments.model";
 
 export class CommentsRepository {
   private collection() {
-    return getDb().collection<Comment>("comments");
+    return getDb().collection('comments');
   }
 
   async create(data: Comment): Promise<Comment> {

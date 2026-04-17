@@ -80,7 +80,7 @@ import { Projects } from "./projects.model";
 
 export class ProjectsRepository {
   private collection() {
-    return getDb().collection<Projects>("projects");
+    return getDb().collection('projects');
   }
 
   async create(data: Projects): Promise<Projects> {

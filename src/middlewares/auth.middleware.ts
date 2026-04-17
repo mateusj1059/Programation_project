@@ -1,36 +1,32 @@
 import { Request, Response, NextFunction } from "express";
-import { verifyToken } from "../libs/jwt";
-import { AuthRequest } from "../shared/types/auth-request";
+import { verifyToken } from "../libs/jwt"; // ajusta la ruta si cambia
 
-
-export const authMiddleware = (
-  req: AuthRequest,
-  res: Response,
-  next: NextFunction
-) => {
+export const authMiddleware = (req: any, res: Response, next: NextFunction) => {
   try {
     const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({
-        message: 'Token requerido',
-      });
+    
+    if (!authHeader) {
+      return res.status(401).json({ message: "Token requerido" });
     }
 
-    const token = authHeader.split(' ')[1];
+    
+    const token = authHeader.split(" ")[1];
+
     if (!token) {
-      return res.status(401).json({
-        message: 'Token requerido',
-      });
+      return res.status(401).json({ message: "Token inválido" });
     }
+
+    
     const payload = verifyToken(token);
 
+    console.log("Payload:", payload); // como mostró el profe
+
+    
     req.user = payload;
 
     next();
   } catch (error) {
-    return res.status(401).json({
-      message: 'Token inválido o expirado',
-    });
+    return res.status(401).json({ message: "Token inválido" });
   }
 };

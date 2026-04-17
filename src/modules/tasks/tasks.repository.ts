@@ -4,7 +4,7 @@ import { Task } from "./tasks.model";
 
 export class TasksRepository {
   private collection() {
-    return getDb().collection<Task>("tasks");
+    return getDb().collection('tasks');
   }
 
   async create(data: Task): Promise<Task> {

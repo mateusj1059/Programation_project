@@ -1,19 +1,29 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
 import { env } from "./env";
 
-let client: MongoClient;
-let db: Db;
+const uri = process.env.MONGO_URI as string;
 
-export const connectDB = async (): Promise<void> => {
-    client = new MongoClient(env.mongoUri);
+const client = new MongoClient(uri);
+
+let db: any;
+
+console.log("MONGO URI:", env.mongoUri);
+
+export const connectDB = async () => {
+  try {
     await client.connect();
-    db = client.db(env.mongoDbName);
-    console.log('Mongo se conecto!!!')
-}
+    db = client.db("minecraft_db");
+    console.log("✅ MongoDB conectado");
+  } catch (error) {
+    console.error("❌ Error conectando MongoDB", error);
+  }
+};
 
-export const getDb = (): Db => {
-    if (!db) {
-        throw new Error('La base de datos no ha sido inicializada');
-    }
-    return db;
-}
+
+export const getDb = () => {
+  if (!db) {
+    throw new Error("La base de datos no está conectada");
+  }
+  return db;
+};
+

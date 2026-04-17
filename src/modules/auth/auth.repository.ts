@@ -4,7 +4,7 @@ import { User } from "../users/users.model";
 
 export class AuthRepository {
     private collection() {
-        return getDb().collection<User>('users')
+        return getDb().collection('users');
     }
 
     async findEmail(email: string): Promise<User | null> {

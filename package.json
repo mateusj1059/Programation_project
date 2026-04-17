@@ -16,11 +16,11 @@
     "compresion": "^1.7.11",
     "compression": "^1.8.1",
     "cors": "^2.8.6",
-    "dotenv": "^17.3.1",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
-    "mongodb": "^7.1.0",
+    "mongodb": "^7.1.1",
     "morgan": "^1.10.1",
     "zod": "^4.3.6"
   },
@@ -30,6 +30,15 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/morgan": "^1.9.10"
-  }
+    "@types/morgan": "^1.9.10",
+    "typescript": "^6.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusj1059/Programation_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mateusj1059/Programation_project/issues"
+  },
+  "homepage": "https://github.com/mateusj1059/Programation_project#readme"
 }
